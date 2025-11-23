@@ -84,6 +84,18 @@ public class TuitionBalanceController {
                     schoolYearLabel.setText(balance.getSchoolYear());
                     
                     System.out.println("Loaded balance for: " + user.getFullName());
+                    
+                    double totalTuition = balance.getTotalTuitionFee();
+
+                     double installmentAmount = totalTuition / 4.0;
+                     String installmentText = formatter.format(installmentAmount);
+
+                    prelimsAmountLabel.setText(installmentText);
+                     midtermsAmountLabel.setText(installmentText);
+                    preFinalsAmountLabel.setText(installmentText);
+                    finalsAmountLabel.setText(installmentText);
+
+                    System.out.println("Loaded balance and calculated 4-term installment for: " + user.getFullName());
                 }
             }
         }
